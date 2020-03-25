@@ -41,6 +41,7 @@ public class InputAxisState
 public class InputManager : MonoBehaviour
 {
     public InputAxisState[] inputs;
+    public InputState inputState;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,8 +53,7 @@ public class InputManager : MonoBehaviour
     {
         foreach (var input in inputs)
         {
-            if (input.value)
-                Debug.Log("Input Detected" + input.button);
+            inputState.SetButtonValue(input.button, input.value);
         }
     }
 }
