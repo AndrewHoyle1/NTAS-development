@@ -5,7 +5,10 @@ using UnityEngine;
 public enum ButtonAssignments
 {
     Left,
-    Right
+    Right,
+    Down,
+    Z,
+    X
 }
 
 public enum Condition

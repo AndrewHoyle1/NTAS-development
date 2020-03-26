@@ -7,9 +7,16 @@ public class ButtonState
     public bool value;
     public float holdTime = 0;
 }
+
+public enum Directions
+{
+    Right = 1,
+    Left = -1
+}
+
 public class InputState : MonoBehaviour
 {
-
+    public Directions direction = Directions.Right;
     private Dictionary<ButtonAssignments, ButtonState> buttonStates = new Dictionary<ButtonAssignments, ButtonState>();
 
 
@@ -23,15 +30,21 @@ public class InputState : MonoBehaviour
 
         if (state.value && !value)
         {
-            Debug.Log("Button " + key + " released" + state.holdTime);
             state.holdTime = 0;
         }
         else if (state.value && value)
         {
-            Debug.Log("Button " + key + " down");
             state.holdTime += Time.deltaTime;
         }
         state.value = value;
+    }
+
+    public bool GetButtonValue(ButtonAssignments key)
+    {
+        if (buttonStates.ContainsKey(key))
+            return buttonStates[key].value;
+        else
+            return false;
     }
 }
 
