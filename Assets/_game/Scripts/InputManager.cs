@@ -21,6 +21,7 @@ public class InputAxisState
     public float offValue;
     public ButtonAssignments button;
     public Condition condition;
+
     public bool value
     {
         get

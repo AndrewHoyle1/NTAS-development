@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SimpleMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float speed = 50f;
     private Rigidbody2D body2d;
 
     // Start is called before the first frame update
