@@ -1056,7 +1056,7 @@ MonoBehaviour:
     condition: 1
   - axisName: Fire1
     offValue: 0
-    button: 3
+    button: 2
     condition: 0
   - axisName: Jump
     offValue: 0
@@ -1305,7 +1305,7 @@ MonoBehaviour:
     m_Bits: 256
   standing: 0
   bottomPosition: {x: 0, y: 0}
-  collisionRadius: 10
+  collisionRadius: 2
   debugCollisionCOlor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1405156931
 MonoBehaviour:

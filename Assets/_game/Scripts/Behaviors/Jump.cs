@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jump : AbstractBehavior
 {
-    public float jumpSpeed = 200f;
+    public float jumpSpeed = 100f;
     // Start is called before the first frame update
     void Start()
     {
