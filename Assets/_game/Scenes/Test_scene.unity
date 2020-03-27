@@ -1306,7 +1306,7 @@ MonoBehaviour:
   standing: 0
   bottomPosition: {x: 0, y: 0}
   collisionRadius: 2
-  debugCollisionCOlor: {r: 1, g: 0, b: 0, a: 1}
+  debugCollisionColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1405156931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 04000000
-  jumpSpeed: 100
+  jumpSpeed: 75
 --- !u!1 &1887861126
 GameObject:
   m_ObjectHideFlags: 0

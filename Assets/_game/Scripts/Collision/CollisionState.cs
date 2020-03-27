@@ -8,8 +8,8 @@ public class CollisionState : MonoBehaviour
     public LayerMask collisionLayer;
     public bool standing;
     public Vector2 bottomPosition = Vector2.zero;
-    public float collisionRadius = 10f;
-    public Color debugCollisionCOlor = Color.red;
+    public float collisionRadius = 2f;
+    public Color debugCollisionColor = Color.red;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class CollisionState : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.color = debugCollisionCOlor;
+        Gizmos.color = debugCollisionColor;
 
         var pos = bottomPosition;
         pos.x += transform.position.x;

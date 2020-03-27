@@ -15,10 +15,10 @@ public class Jump : AbstractBehavior
     void Update()
     {
         var canJump = inputState.GetButtonValue(inputButtons[0]);
-
+        var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
         if (collisionState.standing)
         {
-            if (canJump)
+            if (canJump && holdTime < .1f)
             {
                 OnJump();
             }
