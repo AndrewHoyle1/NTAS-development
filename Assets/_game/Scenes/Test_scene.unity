@@ -581,5 +581,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 010000000000000004000000
-  speed: 400
+  speed: 4000
   runMultiplier: 2
