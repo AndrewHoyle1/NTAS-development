@@ -160,7 +160,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1405156924}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 143.1301
     OrthographicSize: 756.7278
     NearClipPlane: 0.1
     FarClipPlane: 1000
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 367080138}
   - component: {fileID: 367080140}
   - component: {fileID: 367080139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,13 +969,13 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
-  m_projectionMatrixMode: 1
+  m_BackGroundColor: {r: 0.026610907, g: 0.028351882, b: 0.4339623, a: 0}
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 4.0000005
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -984,7 +984,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 60
+  field of view: 143.1301
   orthographic: 0
   orthographic size: 756.7278
   m_Depth: -1
@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 1405156927}
   - component: {fileID: 1405156928}
   - component: {fileID: 1405156929}
+  - component: {fileID: 1405156930}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1217,7 +1218,7 @@ Rigidbody2D:
   m_Mass: 15.987717
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1000
+  m_GravityScale: 40
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1236,6 +1237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+  absVelX: 0
+  absVely: 0
 --- !u!114 &1405156927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1249,6 +1252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+  absVelX: 0
+  absVely: 0
 --- !u!114 &1405156928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1275,8 +1280,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 010000000000000004000000
-  speed: 200
+  speed: 50
   runMultiplier: 2
+  running: 0
+--- !u!114 &1405156930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405156920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27518585bd52cd94c9ac7f9e914cffe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  standing: 0
+  bottomPosition: {x: 0, y: 0}
+  collisionRadius: 10
 --- !u!1 &1887861126
 GameObject:
   m_ObjectHideFlags: 0
