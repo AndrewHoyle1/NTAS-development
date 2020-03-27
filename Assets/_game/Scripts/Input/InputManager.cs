@@ -6,9 +6,9 @@ public enum ButtonAssignments
 {
     Left,
     Right,
+    Shift,
     Down,
-    Z,
-    X
+    Space
 }
 
 public enum Condition

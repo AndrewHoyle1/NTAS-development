@@ -1056,6 +1056,10 @@ MonoBehaviour:
     condition: 1
   - axisName: Fire1
     offValue: 0
+    button: 3
+    condition: 0
+  - axisName: Jump
+    offValue: 0
     button: 4
     condition: 0
   inputState: {fileID: 1405156926}
@@ -1091,6 +1095,7 @@ GameObject:
   - component: {fileID: 1405156928}
   - component: {fileID: 1405156929}
   - component: {fileID: 1405156930}
+  - component: {fileID: 1405156931}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1223,7 +1228,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1405156926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,7 +1284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c3413803dae63478205d2e57a4fbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 010000000000000004000000
+  inputButtons: 010000000000000002000000
   speed: 50
   runMultiplier: 2
   running: 0
@@ -1301,6 +1306,21 @@ MonoBehaviour:
   standing: 0
   bottomPosition: {x: 0, y: 0}
   collisionRadius: 10
+  debugCollisionCOlor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1405156931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405156920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94796ac250318d84d8ef5a71adbf782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 04000000
+  jumpSpeed: 100
 --- !u!1 &1887861126
 GameObject:
   m_ObjectHideFlags: 0
