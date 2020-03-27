@@ -1,7 +1,58 @@
 fileFormatVersion: 2
 guid: ae370e3009d67b24bb9de29236ee7c82
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 6623480786245854134
+    second: HellBrick_0
+  - first:
+      213: 468019425583553718
+    second: HellBrick_1
+  - first:
+      213: 3290363662174716967
+    second: HellBrick_2
+  - first:
+      213: -1678627109417473047
+    second: HellBrick_3
+  - first:
+      213: -7258442772179849592
+    second: HellBrick_4
+  - first:
+      213: -128447401543425586
+    second: HellBrick_5
+  - first:
+      213: -315934814423068169
+    second: HellBrick_6
+  - first:
+      213: -717056962653020417
+    second: HellBrick_7
+  - first:
+      213: 1627403917936574533
+    second: HellBrick_8
+  - first:
+      213: -6466491266638420932
+    second: HellBrick_9
+  - first:
+      213: 4159300446008626264
+    second: HellBrick_10
+  - first:
+      213: 3553750701474592373
+    second: HellBrick_11
+  - first:
+      213: -5554203497816610915
+    second: HellBrick_12
+  - first:
+      213: 9149390954198967738
+    second: HellBrick_13
+  - first:
+      213: -7638715555358625844
+    second: HellBrick_14
+  - first:
+      213: -4114386215285494561
+    second: HellBrick_15
+  - first:
+      213: 5201319163718337272
+    second: HellBrick_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -31,21 +82,21 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +114,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,7 +126,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,7 +135,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: HellBrick_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f20ddcb83cce2840800000000000000
+      internalID: 5201319163718337272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
