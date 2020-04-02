@@ -30,6 +30,7 @@ public class CollisionState : MonoBehaviour
         pos.y += transform.position.y;
 
         standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
+        
     }
 
     void OnDrawGizmos()
