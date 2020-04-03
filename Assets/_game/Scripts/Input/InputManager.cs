@@ -8,7 +8,8 @@ public enum ButtonAssignments
     Right,
     Shift,
     Down,
-    Space
+    Space,
+    C
 }
 
 public enum Condition
