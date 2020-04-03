@@ -8,6 +8,7 @@ public class CollisionState : MonoBehaviour
     public LayerMask collisionLayer;
     public bool standing;
     public bool onWall;
+    public bool canDash;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -47,6 +48,17 @@ public class CollisionState : MonoBehaviour
 
         onWall = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
 
+        var dashPos = bottomPosition;
+        if (inputState.direction == Directions.Right)
+        {
+            dashPos.x += (transform.position.x + 2); // change this is if you change dashlength
+        }
+        else if (inputState.direction == Directions.Left)
+        {
+            dashPos.x += (transform.position.x - 2);
+        }
+        dashPos.y += transform.position.y;
+        canDash = Physics2D.OverlapCircle(dashPos, collisionRadius, collisionLayer);
     }
 
     void OnDrawGizmos()
