@@ -73,7 +73,7 @@ public class CollisionState : MonoBehaviour
             pos.x += transform.position.x;
             pos.y += transform.position.y;
 
-            Gizmos.DrawWireSphere(pos, collisionRadius);
+            Gizmos.DrawWireCube(new Vector3(pos.x, pos.y, 0), new Vector3(collisionRadius, collisionRadius, 0));
         }
     }
 }

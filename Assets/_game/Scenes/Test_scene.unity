@@ -2099,10 +2099,10 @@ MonoBehaviour:
   standing: 0
   onWall: 0
   canDash: 0
-  bottomPosition: {x: 0, y: -1}
-  leftPosition: {x: -1, y: 0}
-  rightPosition: {x: 1, y: 0}
-  collisionRadius: 1
+  bottomPosition: {x: 0, y: -1.1}
+  leftPosition: {x: -1.1, y: 0}
+  rightPosition: {x: 1.1, y: 0}
+  collisionRadius: 1.5
   debugCollisionColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1405156931
 MonoBehaviour:
