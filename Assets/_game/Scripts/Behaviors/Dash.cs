@@ -24,6 +24,7 @@ public class Dash : AbstractBehavior
 
     protected virtual void OnDash()
     {
+        //print("Dash");
         var pos = body2d.position;
         if (inputState.direction == Directions.Right)
         {
