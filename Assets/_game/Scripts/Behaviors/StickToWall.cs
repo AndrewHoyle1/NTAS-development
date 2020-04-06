@@ -5,7 +5,9 @@ using UnityEngine;
 public class StickToWall : AbstractBehavior
 {
     public bool onWallDetected;
-
+    
+    public float wallGravityScale = 0;
+    public float wallDrag = 100;
     protected float defaultGravityScale;
     protected float defaultDrag;
     // Start is called before the first frame update
@@ -39,7 +41,7 @@ public class StickToWall : AbstractBehavior
         }
     }
 
-    protected void OnStick()
+    protected virtual void OnStick()
     {
         if(!collisionState.standing)
         {
@@ -48,7 +50,7 @@ public class StickToWall : AbstractBehavior
         }
     }
 
-    protected void OffWall()
+    protected virtual void OffWall()
     {
         if(body2d.gravityScale != defaultGravityScale)
         {

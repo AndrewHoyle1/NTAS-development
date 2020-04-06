@@ -160,7 +160,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1405156924}
   m_Lens:
-    FieldOfView: 81.20259
+    FieldOfView: 100.388855
     OrthographicSize: 756.7278
     NearClipPlane: 0.1
     FarClipPlane: 1000
@@ -1465,13 +1465,13 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.02745098, b: 0.6039216, a: 0}
+  m_BackGroundColor: {r: 0.10898005, g: 0.34388503, b: 0.745283, a: 0}
   m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 14
+  m_FocalLength: 10.000001
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1480,7 +1480,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 1000
-  field of view: 81.20259
+  field of view: 100.388855
   orthographic: 0
   orthographic size: 756.7278
   m_Depth: -1
@@ -1562,6 +1562,10 @@ MonoBehaviour:
     offValue: 0
     button: 5
     condition: 0
+  - axisName: Vertical
+    offValue: 0
+    button: 3
+    condition: 1
   inputState: {fileID: 1405156927}
 --- !u!4 &1147599043
 Transform:
@@ -1587,17 +1591,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1405156924}
   - component: {fileID: 1405156925}
-  - component: {fileID: 1405156921}
   - component: {fileID: 1405156922}
+  - component: {fileID: 1405156921}
   - component: {fileID: 1405156927}
   - component: {fileID: 1405156928}
   - component: {fileID: 1405156929}
   - component: {fileID: 1405156930}
   - component: {fileID: 1405156931}
-  - component: {fileID: 1405156926}
   - component: {fileID: 1405156923}
   - component: {fileID: 1405156932}
   - component: {fileID: 1405156933}
+  - component: {fileID: 1405156926}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1612,13 +1616,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405156920}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5056c3a618db68b42b32a9320172e12a, type: 3}
+  m_Script: {fileID: 11500000, guid: fd5ce73d1ff92884cbb0409e78438c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  input: 0100000000000000
+  inputButtons: 
+  disableScripts:
+  - {fileID: 1405156931}
+  onWallDetected: 0
+  wallGravityScale: 0
+  wallDrag: 100
+  slideVelocity: -5
 --- !u!212 &1405156922
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1714,7 +1723,7 @@ Rigidbody2D:
   m_Mass: 0.7853982
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 10
+  m_GravityScale: 8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1729,13 +1738,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405156920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e10de211e33ecb4e9bd43f0f70581f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cabfd5ccc7f9e942a90dfb04e09effd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 
-  disableScripts:
-  - {fileID: 1405156931}
-  onWallDetected: 0
+  inputButtons: 03000000
+  disableScripts: []
+  fastFallMultiplier: 3
+  ffCount: 1
 --- !u!114 &1405156927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,14 +1838,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405156920}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8ac77fe641a0eb4e93cd37988561916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 04000000
   disableScripts: []
-  jumpVelocity: {x: 200, y: 200}
+  jumpVelocity: {x: 20, y: 20}
 --- !u!114 &1405156933
 MonoBehaviour:
   m_ObjectHideFlags: 0

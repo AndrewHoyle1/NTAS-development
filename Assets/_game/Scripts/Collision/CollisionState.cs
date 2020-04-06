@@ -21,11 +21,6 @@ public class CollisionState : MonoBehaviour
     {
         inputState = GetComponent<InputState>();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -46,7 +41,7 @@ public class CollisionState : MonoBehaviour
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
-        onWall = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
+        onWall = (Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) && ! standing);
 
         var dashPos = bottomPosition;
         if (inputState.direction == Directions.Right)
