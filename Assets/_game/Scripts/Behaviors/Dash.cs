@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Dash : AbstractBehavior
 {
-    public float dashLen = 2f;
+    public float dashVelX = 10f;
+    public float dashVelY = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,14 +26,7 @@ public class Dash : AbstractBehavior
     protected virtual void OnDash()
     {
         //print("Dash");
-        var pos = body2d.position;
-        if (inputState.direction == Directions.Right)
-        {
-            body2d.position = new Vector2(pos.x + dashLen, pos.y);
-        }
-        else if (inputState.direction == Directions.Left)
-        {
-            body2d.position = new Vector2(pos.x - dashLen, pos.y);
-        }
+        inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
+        body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
     }
 }
