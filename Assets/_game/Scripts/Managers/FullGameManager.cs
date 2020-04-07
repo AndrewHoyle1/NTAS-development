@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FullGameManager : MonoBehaviour
 {
+    public bool dead = false;
+    public CollisionState collisionState;
     public SpawnPoint playerSpawnPoint;
     public GameObject player;
 
@@ -42,11 +44,28 @@ public class FullGameManager : MonoBehaviour
         }
     }
 
+    void KillPlayer()
+    {
+        collisionState.outOfBounds = player.GetComponent<CollisionState>().outOfBounds;
+
+        if (collisionState.outOfBounds)
+        {
+            Destroy(player);
+
+            SetupScene();
+        }
+
+    }
+
     void Start()
     {
         // call in Start() to guarantee the GameObject is on scene
         cameraManager.virtualCamera.Follow = player.transform;
     }
 
+    private void Update()
+    {
+        KillPlayer();
+    }
 
 }
