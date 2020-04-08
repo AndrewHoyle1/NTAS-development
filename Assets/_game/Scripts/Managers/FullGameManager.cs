@@ -7,7 +7,6 @@ public class FullGameManager : MonoBehaviour
     public CollisionState collisionState;
     public SpawnPoint playerSpawnPoint;
     public GameObject player;
-    public Vector3 playerPos;
 
     public static FullGameManager sharedInstance = null;
     public CameraManager cameraManager;
@@ -44,13 +43,20 @@ public class FullGameManager : MonoBehaviour
         }
     }
 
+    IEnumerator Delay(float delay)
+    {
+        Debug.Log("Started Delay at " + Time.time);
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Ended Delay at " + Time.time);
+
+        player.GetComponent<Transform>().position = playerSpawnPoint.transform.position;
+    }
     void RespawnPlayer()
     {
         collisionState.outOfBounds = player.GetComponent<CollisionState>().outOfBounds;
-        playerPos = player.transform.position;
         if (collisionState.outOfBounds)
         {
-            playerPos  = playerSpawnPoint.transform.position;
+            StartCoroutine(Delay(0.4f));
         }
 
     }
