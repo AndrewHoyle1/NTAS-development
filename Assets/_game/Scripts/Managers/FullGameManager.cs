@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FullGameManager : MonoBehaviour
 {
-    public bool dead = false;
     public CollisionState collisionState;
     public SpawnPoint playerSpawnPoint;
     public GameObject player;
+    public Vector3 playerPos;
 
     public static FullGameManager sharedInstance = null;
     public CameraManager cameraManager;
@@ -44,15 +44,13 @@ public class FullGameManager : MonoBehaviour
         }
     }
 
-    void KillPlayer()
+    void RespawnPlayer()
     {
         collisionState.outOfBounds = player.GetComponent<CollisionState>().outOfBounds;
-
+        playerPos = player.transform.position;
         if (collisionState.outOfBounds)
         {
-            Destroy(player);
-
-            SetupScene();
+            playerPos  = playerSpawnPoint.transform.position;
         }
 
     }
@@ -65,7 +63,7 @@ public class FullGameManager : MonoBehaviour
 
     private void Update()
     {
-        KillPlayer();
+        RespawnPlayer();
     }
 
 }
