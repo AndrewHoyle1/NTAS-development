@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
     private Animator animator;
     private CollisionState collisionState;
 
-    void Avake()
+    void Awake()
     {
         inputState = GetComponent<InputState>();
         walkBehavior = GetComponent<Walk>();
@@ -21,19 +21,21 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //print("ha2");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(collisionState.standing)
+        //print(collisionState.standing);
+        if(collisionState.outOfBounds)
+        {
+            //print("ha");
+            ChangeAnimationState(1);
+        }
+        else
         {
             ChangeAnimationState(0);
-        }
-        if (inputState.absVelX > 0)
-        {
-            ChangeAnimationState(1);
         }
 
     }

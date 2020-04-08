@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 586921297664039945}
   - component: {fileID: 586921297664039944}
   - component: {fileID: 586921297664040051}
+  - component: {fileID: 2336352497624034561}
+  - component: {fileID: 9189292001215279165}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -290,3 +292,34 @@ MonoBehaviour:
   disableScripts: []
   fastFallMultiplier: 3
   ffCount: 1
+--- !u!95 &2336352497624034561
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c850dfbac12c50b4f94ad5534c54a4ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9189292001215279165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14aba36c38e85ad429903298d75f9c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
