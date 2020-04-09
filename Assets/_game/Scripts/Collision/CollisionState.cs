@@ -7,7 +7,7 @@ public class CollisionState : MonoBehaviour
 
     public LayerMask collisionLayer;
     public LayerMask boundaryLayer;
-    public LayerMask hazardsLayer = 10;
+    public LayerMask hazardsLayer;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;

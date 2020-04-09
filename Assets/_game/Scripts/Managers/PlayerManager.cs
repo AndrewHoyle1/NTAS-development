@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         //print(collisionState.standing);
-        if(collisionState.outOfBounds)
+        if(collisionState.outOfBounds || collisionState.hitHazard)
         {
             //print("ha");
             ChangeAnimationState(1);

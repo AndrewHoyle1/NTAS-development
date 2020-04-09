@@ -7,6 +7,7 @@ public class FullGameManager : MonoBehaviour
     public CollisionState collisionState;
     public SpawnPoint playerSpawnPoint;
     public GameObject player;
+    public Animator animator;
 
     public static FullGameManager sharedInstance = null;
     public CameraManager cameraManager;
@@ -53,10 +54,13 @@ public class FullGameManager : MonoBehaviour
     }
     void RespawnPlayer()
     {
-        collisionState.outOfBounds = player.GetComponent<CollisionState>().outOfBounds;
-        if (collisionState.outOfBounds)
+        collisionState = player.GetComponent<CollisionState>();
+        if (collisionState.outOfBounds || collisionState.hitHazard)
         {
-            StartCoroutine(Delay(0.4f));
+            StartCoroutine(Delay(0.5f));
+            animator = player.GetComponent<Animator>();
+            animator.SetInteger("AnimState", 2);
+            Delay(0.5f);
         }
 
     }

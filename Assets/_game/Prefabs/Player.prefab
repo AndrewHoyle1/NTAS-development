@@ -198,10 +198,14 @@ MonoBehaviour:
   boundaryLayer:
     serializedVersion: 2
     m_Bits: 512
+  hazardsLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   standing: 0
   onWall: 0
   outOfBounds: 0
   canDash: 0
+  hitHazard: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}

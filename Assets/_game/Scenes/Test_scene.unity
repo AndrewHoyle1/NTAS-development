@@ -1919,6 +1919,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 8364511442030134562, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a970e70fcfc9054a90aa9d45ee3b848, type: 3}
 --- !u!114 &532998149 stripped
@@ -2161,7 +2166,7 @@ GameObject:
   - component: {fileID: 1727326950}
   - component: {fileID: 1727326949}
   - component: {fileID: 1727326948}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: HazardsTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
