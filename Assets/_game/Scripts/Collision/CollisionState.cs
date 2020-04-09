@@ -7,10 +7,12 @@ public class CollisionState : MonoBehaviour
 
     public LayerMask collisionLayer;
     public LayerMask boundaryLayer;
+    public LayerMask hazardsLayer = 10;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
     public bool canDash;
+    public bool hitHazard;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -40,6 +42,8 @@ public class CollisionState : MonoBehaviour
         standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
 
         outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
+
+        hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
         pos = inputState.direction == Directions.Right ? rightPosition: leftPosition; 
         pos.x += transform.position.x;

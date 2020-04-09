@@ -45,9 +45,9 @@ public class FullGameManager : MonoBehaviour
 
     IEnumerator Delay(float delay)
     {
-        Debug.Log("Started Delay at " + Time.time);
+        //Debug.Log("Started Delay at " + Time.time);
         yield return new WaitForSeconds(delay);
-        Debug.Log("Ended Delay at " + Time.time);
+        //Debug.Log("Ended Delay at " + Time.time);
 
         player.GetComponent<Transform>().position = playerSpawnPoint.transform.position;
     }
