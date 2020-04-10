@@ -16,8 +16,8 @@ public class Dash : AbstractBehavior
     void Update()
     {
         var canDash = inputState.GetButtonValue(inputButtons[0]);
-
-        if (canDash)
+        var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
+        if (canDash && holdTime < .1f)
         {
             OnDash();
         }

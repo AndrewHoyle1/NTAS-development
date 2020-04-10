@@ -131,7 +131,7 @@ MonoBehaviour:
   disableScripts:
   - {fileID: 586921297664039950}
   onWallDetected: 0
-  wallGravityScale: 0
+  wallGravityScale: 10
   wallDrag: 100
   slideVelocity: -5
 --- !u!114 &586921297664040050
@@ -224,7 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 04000000
-  disableScripts: []
+  disableScripts:
+  - {fileID: 586921297664039945}
   jumpSpeed: 30
   jumpDelay: 0.1
   jumpCount: 2
@@ -277,9 +278,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 05000000
-  disableScripts: []
-  dashVelX: 50
-  dashVelY: 0
+  disableScripts:
+  - {fileID: 586921297664039948}
+  dashVelX: 30
+  dashVelY: 3
 --- !u!114 &586921297664040051
 MonoBehaviour:
   m_ObjectHideFlags: 0
