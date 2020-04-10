@@ -201,10 +201,12 @@ MonoBehaviour:
   hazardsLayer:
     serializedVersion: 2
     m_Bits: 1024
+  breakableLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   standing: 0
   onWall: 0
   outOfBounds: 0
-  canDash: 0
   hitHazard: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
@@ -282,6 +284,7 @@ MonoBehaviour:
   - {fileID: 586921297664039948}
   dashVelX: 30
   dashVelY: 3
+  dashDuration: 0.5
 --- !u!114 &586921297664040051
 MonoBehaviour:
   m_ObjectHideFlags: 0

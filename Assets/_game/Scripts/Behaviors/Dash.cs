@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Dash : AbstractBehavior
 {
     public float dashVelX = 10f;
     public float dashVelY = 0f;
+    public float dashDuration = 0.5f;
+    protected float lastDashTime = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +25,13 @@ public class Dash : AbstractBehavior
         {
             OnDash();
         }
+        //if (lastDashTime < dashBreakTime)
+       
     }
 
     protected virtual void OnDash()
     {
-        //print("Dash");
+        lastDashTime = Time.time;
         inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
         body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
     }

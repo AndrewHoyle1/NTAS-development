@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CollisionState : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class CollisionState : MonoBehaviour
     public LayerMask collisionLayer;
     public LayerMask boundaryLayer;
     public LayerMask hazardsLayer;
+    public LayerMask breakableLayer;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
-    public bool canDash;
     public bool hitHazard;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
@@ -50,18 +51,6 @@ public class CollisionState : MonoBehaviour
         pos.y += transform.position.y;
 
         onWall = (Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) && ! standing);
-
-        var dashPos = bottomPosition;
-        if (inputState.direction == Directions.Right)
-        {
-            dashPos.x += (transform.position.x + 2); // change this is if you change dashlength
-        }
-        else if (inputState.direction == Directions.Left)
-        {
-            dashPos.x += (transform.position.x - 2);
-        }
-        dashPos.y += transform.position.y;
-        canDash = Physics2D.OverlapCircle(dashPos, collisionRadius, collisionLayer);
     }
 
     void OnDrawGizmos()
@@ -79,4 +68,14 @@ public class CollisionState : MonoBehaviour
             Gizmos.DrawWireCube(new Vector3(pos.x, pos.y, 0), new Vector3(collisionRadius, collisionRadius, 0));
         }
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == 11)  //Kind of a gross way to do it
+        {
+            var platforms = col.gameObject.GetComponent<TilemapCollider2D>();
+            platforms.enabled = false;
+        }
+    }
+
 }
