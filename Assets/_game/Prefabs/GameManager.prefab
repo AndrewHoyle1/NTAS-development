@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eca347ea47b1f74bb542875b1a09553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionState: {fileID: 0}
   playerSpawnPoint: {fileID: 0}
+  player: {fileID: 0}
+  animator: {fileID: 0}
   cameraManager: {fileID: 8212820090264637210, guid: 48af0953e8c3c484197438e1ecdb7148,
     type: 3}
