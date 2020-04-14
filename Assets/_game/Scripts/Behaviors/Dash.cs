@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class Dash : AbstractBehavior
 {
@@ -24,9 +23,7 @@ public class Dash : AbstractBehavior
         if (canDash && holdTime < .1f)
         {
             OnDash();
-        }
-        //if (lastDashTime < dashBreakTime)
-       
+        }       
     }
 
     protected virtual void OnDash()
@@ -34,5 +31,6 @@ public class Dash : AbstractBehavior
         lastDashTime = Time.time;
         inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
         body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
+        StartCoroutine(Delay(dashDuration));
     }
 }

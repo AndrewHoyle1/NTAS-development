@@ -228,6 +228,7 @@ MonoBehaviour:
   inputButtons: 04000000
   disableScripts:
   - {fileID: 586921297664039945}
+  - {fileID: 586921297664040052}
   jumpSpeed: 30
   jumpDelay: 0.1
   jumpCount: 2
@@ -282,9 +283,13 @@ MonoBehaviour:
   inputButtons: 05000000
   disableScripts:
   - {fileID: 586921297664039948}
+  - {fileID: 586921297664040052}
+  - {fileID: 586921297664039950}
+  - {fileID: 586921297664039945}
+  - {fileID: 586921297664039944}
   dashVelX: 30
-  dashVelY: 3
-  dashDuration: 0.5
+  dashVelY: 5
+  dashDuration: 0.25
 --- !u!114 &586921297664040051
 MonoBehaviour:
   m_ObjectHideFlags: 0
