@@ -7,6 +7,7 @@ public class FastFall : AbstractBehavior
 
     public float fastFallMultiplier = 2f;
     public int ffCount = 1;
+    public float ffDuration = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,15 @@ public class FastFall : AbstractBehavior
     protected void OnFastFall()
     {
         var vel = body2d.velocity;
+        body2d.velocity = new Vector2(vel.x, vel.y * fastFallMultiplier);        
+        StartCoroutine(passAllower());
+    }
 
-        body2d.velocity = new Vector2(vel.x, vel.y * fastFallMultiplier);
-        print("fastFall");
+    protected IEnumerator passAllower()  //Makes the player able to pass through certain walls for the duration of the dash
+    {
+        collisionState.canPassThrough = true;
+        yield return new WaitForSeconds(ffDuration);
+        collisionState.canPassThrough = false;
     }
 }
+

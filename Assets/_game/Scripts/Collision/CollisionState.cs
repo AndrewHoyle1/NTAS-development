@@ -42,7 +42,7 @@ public class CollisionState : MonoBehaviour
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
-        standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
+        standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
 
         outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
 
@@ -52,7 +52,7 @@ public class CollisionState : MonoBehaviour
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
-        onWall = (Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) && ! standing);
+        onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && ! standing);
     }
 
     void OnDrawGizmos()
@@ -75,16 +75,8 @@ public class CollisionState : MonoBehaviour
     {
         if (col.gameObject.layer == 11 && canPassThrough == true)  //Kind of a gross way to do it
         {
-            var platforms = col.gameObject.GetComponent<TilemapCollider2D>();
-            platforms.enabled = false;
-            StartCoroutine(ColliderDelayer(platforms));
+            var wall = col.gameObject;
+            Destroy(wall);
         }
-    }
-
-    protected IEnumerator ColliderDelayer(TilemapCollider2D collider)  //Delays scripts for a set amount of time
-    {        
-        yield return new WaitForSeconds(colliderDelay);
-        collider.enabled = true;
-        print("poo");
     }
 }
