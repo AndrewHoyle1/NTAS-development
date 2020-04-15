@@ -14,10 +14,12 @@ public class CollisionState : MonoBehaviour
     public bool onWall;
     public bool outOfBounds;
     public bool hitHazard;
+    public bool canPassThrough;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
     public float collisionRadius = 0.5f;
+    public float colliderDelay = 0.5f;
     public Color debugCollisionColor = Color.red;
 
     private InputState inputState;
@@ -71,11 +73,18 @@ public class CollisionState : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == 11)  //Kind of a gross way to do it
+        if (col.gameObject.layer == 11 && canPassThrough == true)  //Kind of a gross way to do it
         {
             var platforms = col.gameObject.GetComponent<TilemapCollider2D>();
             platforms.enabled = false;
+            StartCoroutine(ColliderDelayer(platforms));
         }
     }
 
+    protected IEnumerator ColliderDelayer(TilemapCollider2D collider)  //Delays scripts for a set amount of time
+    {        
+        yield return new WaitForSeconds(colliderDelay);
+        collider.enabled = true;
+        print("poo");
+    }
 }

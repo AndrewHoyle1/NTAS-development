@@ -27,12 +27,10 @@ public abstract class AbstractBehavior : MonoBehaviour
         }
     }
 
-    protected IEnumerator Delay(float delay)  //Delays scripts for a set amount of time
+    protected IEnumerator ScriptsDelay(float delay)  //Delays scripts for a set amount of time
     {
         ToggleScripts(false);
-        print("Scripts Disabled");
         yield return new WaitForSeconds(delay);
         ToggleScripts(true);
-        print("Scripts enabled");
     }
 }

@@ -31,6 +31,14 @@ public class Dash : AbstractBehavior
         lastDashTime = Time.time;
         inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
         body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
-        StartCoroutine(Delay(dashDuration));
+        StartCoroutine(ScriptsDelay(dashDuration));
+        StartCoroutine(passAllower());
+    }
+
+    protected IEnumerator passAllower()  //Makes the player able to pass through certain walls for the duration of the dash
+    {
+        collisionState.canPassThrough = true;
+        yield return new WaitForSeconds(dashDuration);
+        collisionState.canPassThrough = false;
     }
 }
