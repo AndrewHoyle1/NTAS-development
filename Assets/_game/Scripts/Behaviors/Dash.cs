@@ -9,6 +9,10 @@ public class Dash : AbstractBehavior
     public float dashDuration = 0.5f;
     protected float lastDashTime = 0;
 
+    public Transform dashParticles;
+
+    private Transform clone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,14 +35,16 @@ public class Dash : AbstractBehavior
         lastDashTime = Time.time;
         inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
         body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
+        Transform clone = Instantiate(dashParticles, transform.position, Quaternion.identity);
         StartCoroutine(ScriptsDelay(dashDuration));
         StartCoroutine(passAllower());
+        Destroy(clone.gameObject, 0.25f);
     }
 
     protected IEnumerator passAllower()  //Makes the player able to pass through certain walls for the duration of the dash
     {
-        collisionState.canPassThrough = true;
+        collisionState.canPassThroughHorz = true;
         yield return new WaitForSeconds(dashDuration);
-        collisionState.canPassThrough = false;
+        collisionState.canPassThroughHorz = false;        
     }
 }

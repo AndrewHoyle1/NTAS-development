@@ -14,7 +14,10 @@ public class CollisionState : MonoBehaviour
     public bool onWall;
     public bool outOfBounds;
     public bool hitHazard;
-    public bool canPassThrough;
+    public bool canPassThroughVert;
+    public bool canPassThroughHorz;
+    public bool canVertBoost;
+    public bool canHorzBoost;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -73,10 +76,20 @@ public class CollisionState : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == 11 && canPassThrough == true)  //Kind of a gross way to do it
+        if (col.gameObject.layer == 11)  //Kind of a gross way to do it
         {
-            var wall = col.gameObject;
-            Destroy(wall);
+            if (canPassThroughHorz)
+            {
+                var wall = col.gameObject;
+                Destroy(wall);
+                canHorzBoost = true;
+            }
+            else if (canPassThroughVert)
+            {
+                var wall = col.gameObject;
+                Destroy(wall);
+                canVertBoost = true;
+            }
         }
     }
 }

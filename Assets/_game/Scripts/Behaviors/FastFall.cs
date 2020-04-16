@@ -41,9 +41,9 @@ public class FastFall : AbstractBehavior
 
     protected IEnumerator passAllower()  //Makes the player able to pass through certain walls for the duration of the dash
     {
-        collisionState.canPassThrough = true;
+        collisionState.canPassThroughVert = true;
         yield return new WaitForSeconds(ffDuration);
-        collisionState.canPassThrough = false;
+        collisionState.canPassThroughVert = false;
     }
 }
 

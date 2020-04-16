@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 586921297664040051}
   - component: {fileID: 2336352497624034561}
   - component: {fileID: 9189292001215279165}
+  - component: {fileID: 324743322559724781}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -208,10 +209,15 @@ MonoBehaviour:
   onWall: 0
   outOfBounds: 0
   hitHazard: 0
+  canPassThroughVert: 0
+  canPassThroughHorz: 0
+  canVertBoost: 0
+  canHorzBoost: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
   collisionRadius: 0.4
+  colliderDelay: 0.5
   debugCollisionColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &586921297664039950
 MonoBehaviour:
@@ -290,6 +296,8 @@ MonoBehaviour:
   dashVelX: 30
   dashVelY: 5
   dashDuration: 0.25
+  dashParticles: {fileID: 8352830611408491353, guid: 0d0d1b4fc859f924d823047583b6c39d,
+    type: 3}
 --- !u!114 &586921297664040051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +314,7 @@ MonoBehaviour:
   disableScripts: []
   fastFallMultiplier: 3
   ffCount: 1
+  ffDuration: 0.5
 --- !u!95 &2336352497624034561
 Animator:
   serializedVersion: 3
@@ -337,3 +346,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14aba36c38e85ad429903298d75f9c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &324743322559724781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1665fd78b977aa4b9877cbecd56aea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 
+  disableScripts:
+  - {fileID: 586921297664039944}
+  - {fileID: 586921297664039945}
+  - {fileID: 586921297664040052}
+  - {fileID: 586921297664039948}
+  - {fileID: 586921297664039950}
+  - {fileID: 586921297664040051}
+  - {fileID: 586921297664039949}
+  boostVel: 40
+  boostDuration: 0.1
