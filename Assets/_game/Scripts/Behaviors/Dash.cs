@@ -33,9 +33,16 @@ public class Dash : AbstractBehavior
     protected virtual void OnDash()
     {
         lastDashTime = Time.time;
-        inputState.direction = inputState.direction == Directions.Right ? Directions.Right : Directions.Left;
-        body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
         Transform clone = Instantiate(dashParticles, transform.position, Quaternion.identity);
+        if (inputState.direction == Directions.Right)
+        {
+            body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);            
+        }
+        else 
+        {
+            body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
+            clone.rotation = Quaternion.AngleAxis(180, Vector3.up);
+        }
         StartCoroutine(ScriptsDelay(dashDuration));
         StartCoroutine(passAllower());
         Destroy(clone.gameObject, 0.25f);
