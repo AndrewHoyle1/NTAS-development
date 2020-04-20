@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickToWall : AbstractBehavior
+public class StickToWall : AbstractBehavior //Isn't attached to player because WallSlide extends this
 {
     public bool onWallDetected;
     

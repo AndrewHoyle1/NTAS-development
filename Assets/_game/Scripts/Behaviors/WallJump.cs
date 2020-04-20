@@ -13,6 +13,7 @@ public class WallJump : AbstractBehavior
     // Update is called once per frame
     void Update()
     {
+        print("WallJump");
         if(collisionState.onWall && !collisionState.standing)
         {
             var canJump = inputState.GetButtonValue(inputButtons[0]);

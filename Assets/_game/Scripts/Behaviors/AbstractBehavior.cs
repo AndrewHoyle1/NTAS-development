@@ -30,6 +30,7 @@ public abstract class AbstractBehavior : MonoBehaviour
     protected IEnumerator ScriptsDelay(float delay)  //Delays scripts for a set amount of time
     {
         ToggleScripts(false);
+        //print("wow");
         yield return new WaitForSeconds(delay);
         ToggleScripts(true);
     }
