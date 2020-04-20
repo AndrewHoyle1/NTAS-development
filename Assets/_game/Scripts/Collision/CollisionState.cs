@@ -10,6 +10,7 @@ public class CollisionState : MonoBehaviour
     public LayerMask boundaryLayer;
     public LayerMask hazardsLayer;
     public LayerMask breakableLayer;
+    public LayerMask npcLayer;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
@@ -18,6 +19,8 @@ public class CollisionState : MonoBehaviour
     public bool canPassThroughHorz;
     public bool canVertBoost;
     public bool canHorzBoost;
+    public bool npcInteractionTop;
+    public bool npcInteractionSide;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -51,11 +54,15 @@ public class CollisionState : MonoBehaviour
 
         hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
+        npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
         pos = inputState.direction == Directions.Right ? rightPosition: leftPosition; 
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
         onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && ! standing);
+
+        npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
     }
 
     void OnDrawGizmos()

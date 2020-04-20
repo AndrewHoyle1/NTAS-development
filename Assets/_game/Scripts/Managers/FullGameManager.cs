@@ -6,7 +6,9 @@ public class FullGameManager : MonoBehaviour
 {
     public CollisionState collisionState;
     public SpawnPoint playerSpawnPoint;
+    public SpawnPoint npcSpawnPoint;
     public GameObject player;
+    public GameObject npc;
     public Animator animator;
 
     public static FullGameManager sharedInstance = null;
@@ -34,6 +36,7 @@ public class FullGameManager : MonoBehaviour
     public void SetupScene()
     {
         SpawnPlayer();
+        SpawnNPC();
     }
 
     public void SpawnPlayer()
@@ -41,6 +44,14 @@ public class FullGameManager : MonoBehaviour
         if (playerSpawnPoint != null)
         {
             player = playerSpawnPoint.SpawnObject();
+        }
+    }
+
+    public void SpawnNPC()
+    {
+        if (npcSpawnPoint != null)
+        {
+            npc = npcSpawnPoint.SpawnObject();
         }
     }
 

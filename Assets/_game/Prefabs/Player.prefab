@@ -17,13 +17,14 @@ GameObject:
   - component: {fileID: 586921297664039948}
   - component: {fileID: 586921297664039951}
   - component: {fileID: 586921297664039950}
-  - component: {fileID: 586921297664040054}
   - component: {fileID: 586921297664039945}
   - component: {fileID: 586921297664039944}
   - component: {fileID: 586921297664040051}
   - component: {fileID: 2336352497624034561}
   - component: {fileID: 9189292001215279165}
   - component: {fileID: 324743322559724781}
+  - component: {fileID: -1745379187980781152}
+  - component: {fileID: -5904611085158551862}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -57,7 +58,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.7853982
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 8
@@ -205,6 +206,9 @@ MonoBehaviour:
   breakableLayer:
     serializedVersion: 2
     m_Bits: 2048
+  npcLayer:
+    serializedVersion: 2
+    m_Bits: 4096
   standing: 0
   onWall: 0
   outOfBounds: 0
@@ -213,6 +217,8 @@ MonoBehaviour:
   canPassThroughHorz: 0
   canVertBoost: 0
   canHorzBoost: 0
+  npcInteractionTop: 0
+  npcInteractionSide: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
@@ -238,22 +244,6 @@ MonoBehaviour:
   jumpSpeed: 30
   jumpDelay: 0.1
   jumpCount: 2
---- !u!58 &586921297664040054
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586921297664040053}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &586921297664039945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,3 +359,45 @@ MonoBehaviour:
   - {fileID: 586921297664039949}
   boostVel: 40
   boostDuration: 0.1
+--- !u!61 &-1745379187980781152
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 4cefd52abe8a45e4ba403fe498f5910f, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &-5904611085158551862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 038318ce6cd2cce4e8a4e3e70a2e1a8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButtons: 06000000
+  disableScripts: []
+  npc: {fileID: 6791461120448203836, guid: 28bf4be5ac3614e499423443527d7fb1, type: 3}
+  playerTransform: {fileID: 0}
