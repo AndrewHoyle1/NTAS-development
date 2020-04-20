@@ -45,6 +45,7 @@ public class StickToWall : AbstractBehavior //Isn't attached to player because W
     {
         if(!collisionState.standing)
         {
+            print("haha");
             body2d.gravityScale = 0;
             body2d.drag = 100;
         }
