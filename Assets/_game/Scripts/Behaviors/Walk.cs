@@ -33,9 +33,22 @@ public class Walk : AbstractBehavior
                 running = true;
             }
 
-            var velX = tmpSpeed * (float)inputState.direction;
+            if(collisionState.hitHazard)
+            {
+                tmpSpeed = 0.0f;
 
-            body2d.velocity = new Vector2(velX, body2d.velocity.y);
+                var velX = tmpSpeed * (float)inputState.direction;
+
+                body2d.velocity = new Vector2(velX, body2d.velocity.y);
+            }
+            else
+            {
+                var velX = tmpSpeed * (float)inputState.direction;
+
+                body2d.velocity = new Vector2(velX, body2d.velocity.y);
+            }
+            
+
         }
 
     }

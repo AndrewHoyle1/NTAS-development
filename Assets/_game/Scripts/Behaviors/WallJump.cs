@@ -23,7 +23,7 @@ public class WallJump : AbstractBehavior
             {
                 inputState.direction = inputState.direction == Directions.Right ? Directions.Left : Directions.Right;
                 body2d.velocity = new Vector2(jumpVelocity.x * (float)inputState.direction, jumpVelocity.y);
-                //print(body2d.velocity.x); (a debugging feature I had)
+                print("WallJump");
 
                 ToggleScripts(false);
                 jumpingOffWall = true;

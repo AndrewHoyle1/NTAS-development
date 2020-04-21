@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CollisionState : MonoBehaviour
 {
 
     public LayerMask collisionLayer;
+    public LayerMask boundaryLayer;
+    public LayerMask hazardsLayer;
+    public LayerMask breakableLayer;
+    public LayerMask npcLayer;
     public bool standing;
     public bool onWall;
-    public bool canDash;
+    public bool outOfBounds;
+    public bool hitHazard;
+    public bool canPassThroughVert;
+    public bool canPassThroughHorz;
+    public bool canVertBoost;
+    public bool canHorzBoost;
+    public bool npcInteractionTop;
+    public bool npcInteractionSide;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
     public float collisionRadius = 0.5f;
+    public float colliderDelay = 0.5f;
     public Color debugCollisionColor = Color.red;
 
     private InputState inputState;
@@ -35,25 +48,21 @@ public class CollisionState : MonoBehaviour
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
-        standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
+        standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
+
+        outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
+
+        hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+        npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
         pos = inputState.direction == Directions.Right ? rightPosition: leftPosition; 
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
-        onWall = (Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) && ! standing);
+        onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && ! standing);
 
-        var dashPos = bottomPosition;
-        if (inputState.direction == Directions.Right)
-        {
-            dashPos.x += (transform.position.x + 2); // change this is if you change dashlength
-        }
-        else if (inputState.direction == Directions.Left)
-        {
-            dashPos.x += (transform.position.x - 2);
-        }
-        dashPos.y += transform.position.y;
-        canDash = Physics2D.OverlapCircle(dashPos, collisionRadius, collisionLayer);
+        npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
     }
 
     void OnDrawGizmos()
@@ -69,6 +78,25 @@ public class CollisionState : MonoBehaviour
             pos.y += transform.position.y;
 
             Gizmos.DrawWireCube(new Vector3(pos.x, pos.y, 0), new Vector3(collisionRadius, collisionRadius, 0));
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == 11)  //Kind of a gross way to do it
+        {
+            if (canPassThroughHorz)
+            {
+                var wall = col.gameObject;
+                Destroy(wall);
+                canHorzBoost = true;
+            }
+            else if (canPassThroughVert)
+            {
+                var wall = col.gameObject;
+                Destroy(wall);
+                canVertBoost = true;
+            }
         }
     }
 }

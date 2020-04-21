@@ -49,5 +49,6 @@ public class Jump : AbstractBehavior
         var vel = body2d.velocity;
         lastJumpTime = Time.time;
         body2d.velocity = new Vector2(vel.x, jumpSpeed);
+        StartCoroutine(ScriptsDelay(jumpDelay));
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickToWall : AbstractBehavior
+public class StickToWall : AbstractBehavior //Isn't attached to player because WallSlide extends this
 {
     public bool onWallDetected;
     
@@ -45,6 +45,7 @@ public class StickToWall : AbstractBehavior
     {
         if(!collisionState.standing)
         {
+            print("haha");
             body2d.gravityScale = 0;
             body2d.drag = 100;
         }
