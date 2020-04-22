@@ -29,10 +29,12 @@ public class CollisionState : MonoBehaviour
     public Color debugCollisionColor = Color.red;
 
     private InputState inputState;
+    private Stack stack;
 
     private void Awake()
     {
         inputState = GetComponent<InputState>();
+        stack = GetComponent<Stack>();
     }
 
     // Update is called once per frame
@@ -45,24 +47,79 @@ public class CollisionState : MonoBehaviour
     {
 
         var pos = bottomPosition;
-        pos.x += transform.position.x;
-        pos.y += transform.position.y;
 
-        standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
+        if (stack.connectedSide)
+        {
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
 
-        outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
+            standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
 
-        hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+            outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
 
-        npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
-        pos = inputState.direction == Directions.Right ? rightPosition: leftPosition; 
-        pos.x += transform.position.x;
-        pos.y += transform.position.y;
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
-        onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && ! standing);
+            pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
+            
+            if (inputState.direction == Directions.Right)
+            {
+                pos.x += transform.position.x + 1;
+            }
+            else if (inputState.direction == Directions.Left)
+            {
+                pos.x += transform.position.x - 1;
+            }
+            pos.y += transform.position.y;
 
-        npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+            onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
+
+            npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+        }
+        else if (stack.connectedTop)
+        {
+            pos.x += transform.position.x;
+            pos.y += transform.position.y - 1;
+
+            standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
+
+            outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
+
+            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
+
+            onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
+
+            npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+        }
+        else
+        {
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
+
+            standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
+
+            outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
+
+            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
+
+            onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
+
+            npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+        }
+       
     }
 
     void OnDrawGizmos()

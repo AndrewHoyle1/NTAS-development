@@ -196,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
         type: 3}
       propertyPath: inputs.Array.data[6].axisName
-      value: Horizontal
+      value: Stack
       objectReference: {fileID: 0}
     - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
         type: 3}
@@ -343,12 +343,12 @@ PrefabInstance:
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 43.45
       objectReference: {fileID: 0}
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7
+      value: 14.57
       objectReference: {fileID: 0}
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
