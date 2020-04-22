@@ -10,7 +10,7 @@ public enum ButtonAssignments
     Down,
     Space,
     C,
-    E
+    e
 }
 
 public enum Condition

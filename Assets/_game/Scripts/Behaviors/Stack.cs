@@ -5,17 +5,24 @@ using UnityEngine;
 public class Stack : AbstractBehavior
 {
     public GameObject npc;
+    public bool connected;
+    //public Component initialRb2d;
 
-
-    public void Interact()
+    public void Connect()
     {
-        npc.transform.SetParent(GetComponent<Transform>());
+        npc = GameObject.FindGameObjectWithTag("NPC");
+        npc.transform.SetParent(gameObject.transform);
+        
+    }
 
+    public void Disconnect()
+    {
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        connected = false;
     }
 
     // Update is called once per frame
@@ -23,10 +30,16 @@ public class Stack : AbstractBehavior
     {
         var canStack = inputState.GetButtonValue(inputButtons[0]);
 
-        if (collisionState.npcInteractionSide && canStack)
+        if (canStack && collisionState.npcInteractionSide)
         {
-            Interact();
+            Connect();
+            connected = true;
         }
+        else if (canStack && connected == true) 
+        {
+            Disconnect();
+        }
+
 
     }
 }

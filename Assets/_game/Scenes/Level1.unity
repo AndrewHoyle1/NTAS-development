@@ -188,6 +188,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
+        type: 3}
+      propertyPath: inputs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
+        type: 3}
+      propertyPath: inputs.Array.data[6].axisName
+      value: Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
+        type: 3}
+      propertyPath: inputs.Array.data[6].button
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
+        type: 3}
+      propertyPath: inputs.Array.data[6].condition
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 707009a27f116aa4d96af7b738a455f0, type: 3}
 --- !u!114 &89676691 stripped
@@ -318,7 +338,7 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabToSpawn
       value: 
-      objectReference: {fileID: 6791461120448203836, guid: 28bf4be5ac3614e499423443527d7fb1,
+      objectReference: {fileID: 4667025286852414428, guid: a002c3f46916b05438105f3510d1e3cb,
         type: 3}
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
