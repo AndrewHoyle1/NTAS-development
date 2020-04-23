@@ -5,10 +5,7 @@ using UnityEngine;
 public class WallJump : AbstractBehavior
 {
     public Vector2 jumpVelocity = new Vector2(50, 200);
-    public bool jumpingOffWall;
     public float resetDelay = .2f;
-
-    private float timeElapsed = 0;
 
     // Update is called once per frame
     void Update()
@@ -23,20 +20,8 @@ public class WallJump : AbstractBehavior
                 body2d.velocity = new Vector2(jumpVelocity.x * (float)inputState.direction, jumpVelocity.y);
                 print("WallJump");
 
-                ToggleScripts(false);
-                jumpingOffWall = true;
+                StartCoroutine(ScriptsDelay(resetDelay));
             }
-        }
-        if(jumpingOffWall)
-        {
-            timeElapsed += Time.deltaTime;
-
-            if(timeElapsed > resetDelay)
-            {
-                ToggleScripts(true);
-                jumpingOffWall = false;
-                timeElapsed = 0;
-            }
-        }
+        }        
     }
 }

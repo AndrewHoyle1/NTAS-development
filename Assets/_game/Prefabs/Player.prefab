@@ -262,9 +262,9 @@ MonoBehaviour:
   - {fileID: 586921297664039948}
   - {fileID: 586921297664039950}
   - {fileID: 586921297664040052}
+  - {fileID: 586921297664039945}
   jumpVelocity: {x: 20, y: 20}
-  jumpingOffWall: 0
-  resetDelay: 0.2
+  resetDelay: 0.3
 --- !u!114 &586921297664039944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,4 +401,5 @@ MonoBehaviour:
   inputButtons: 06000000
   disableScripts: []
   npc: {fileID: 0}
-  connected: 0
+  connectedTop: 0
+  connectedSide: 0
