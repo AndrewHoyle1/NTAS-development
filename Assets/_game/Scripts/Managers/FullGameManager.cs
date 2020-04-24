@@ -9,6 +9,7 @@ public class FullGameManager : MonoBehaviour
     public SpawnPoint npcSpawnPoint;
     public GameObject player;
     public GameObject npc;
+    public GameObject checkpoint;
     public Animator animator;
 
     public static FullGameManager sharedInstance = null;
@@ -61,7 +62,16 @@ public class FullGameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         //Debug.Log("Ended Delay at " + Time.time);
 
-        player.GetComponent<Transform>().position = playerSpawnPoint.transform.position;
+        
+        if (player.GetComponent<Checkpoint>().triggered == true)
+        {
+            player.GetComponent<Transform>().position = checkpoint.transform.position;
+        }
+
+        else
+        {
+            player.GetComponent<Transform>().position = playerSpawnPoint.transform.position;
+        }
     }
     void RespawnPlayer()
     {
@@ -80,11 +90,13 @@ public class FullGameManager : MonoBehaviour
     {
         // call in Start() to guarantee the GameObject is on scene
         cameraManager.virtualCamera.Follow = player.transform;
+        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
     }
 
     private void Update()
     {
         RespawnPlayer();
+
     }
 
 }

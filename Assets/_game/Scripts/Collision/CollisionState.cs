@@ -11,6 +11,7 @@ public class CollisionState : MonoBehaviour
     public LayerMask hazardsLayer;
     public LayerMask breakableLayer;
     public LayerMask npcLayer;
+    public LayerMask checkpointLayer;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
@@ -21,6 +22,7 @@ public class CollisionState : MonoBehaviour
     public bool canHorzBoost;
     public bool npcInteractionTop;
     public bool npcInteractionSide;
+    public bool checkpointHit;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -45,7 +47,7 @@ public class CollisionState : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        
         var pos = bottomPosition;
 
         if (stack.connectedSide)

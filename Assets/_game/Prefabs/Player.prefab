@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 324743322559724781}
   - component: {fileID: -1745379187980781152}
   - component: {fileID: -5904611085158551862}
+  - component: {fileID: 5929303635716702897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -209,6 +210,9 @@ MonoBehaviour:
   npcLayer:
     serializedVersion: 2
     m_Bits: 4096
+  checkpointLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   standing: 0
   onWall: 0
   outOfBounds: 0
@@ -219,6 +223,7 @@ MonoBehaviour:
   canHorzBoost: 0
   npcInteractionTop: 0
   npcInteractionSide: 0
+  checkpointHit: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
@@ -260,9 +265,7 @@ MonoBehaviour:
   inputButtons: 04000000
   disableScripts:
   - {fileID: 586921297664039948}
-  - {fileID: 586921297664039950}
   - {fileID: 586921297664040052}
-  - {fileID: 586921297664039945}
   jumpVelocity: {x: 20, y: 20}
   resetDelay: 0.3
 --- !u!114 &586921297664039944
@@ -398,8 +401,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038318ce6cd2cce4e8a4e3e70a2e1a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 06000000
+  inputButtons: 0600000006000000
   disableScripts: []
   npc: {fileID: 0}
   connectedTop: 0
   connectedSide: 0
+--- !u!114 &5929303635716702897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586921297664040053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfbf15562cdc544a8748423e085929a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,6 +22,10 @@ public class Stack : AbstractBehavior
     {
         gameObject.transform.DetachChildren();
         npc.AddComponent<Rigidbody2D>();
+        npc.GetComponent<Rigidbody2D>().freezeRotation = true;
+        npc.GetComponent<Rigidbody2D>().useAutoMass = true;
+        npc.GetComponent<Rigidbody2D>().simulated = true;
+        npc.GetComponent<Rigidbody2D>().gravityScale = 8.0f;
     }
     // Start is called before the first frame update
     void Start()
@@ -34,6 +38,7 @@ public class Stack : AbstractBehavior
     void Update()
     {
         var canStack = inputState.GetButtonValue(inputButtons[0]);
+        var canUnstack = inputState.GetButtonValue(inputButtons[1]);
 
         if (canStack && collisionState.npcInteractionSide)
         {
@@ -45,7 +50,7 @@ public class Stack : AbstractBehavior
             Connect();
             connectedTop = true;
         }
-        else if (canStack && (connectedSide || connectedTop))
+        else if (canUnstack && (connectedSide || connectedTop))
         {
             Disconnect();
             connectedTop = false;
