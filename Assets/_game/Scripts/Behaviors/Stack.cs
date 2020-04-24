@@ -11,7 +11,6 @@ public class Stack : AbstractBehavior
 
     public void Connect()
     {
-        npc = GameObject.FindGameObjectWithTag("NPC");
         npc.transform.SetParent(gameObject.transform);
         Destroy(npc.GetComponent<Rigidbody2D>());
         //npc.transform.position = new Vector3(1, 0, 0);
@@ -32,10 +31,11 @@ public class Stack : AbstractBehavior
     {
         connectedTop = false;
         connectedSide = false;
+        npc = GameObject.FindGameObjectWithTag("NPC");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var canStack = inputState.GetButtonValue(inputButtons[0]);
         var canUnstack = inputState.GetButtonValue(inputButtons[1]);
@@ -50,11 +50,10 @@ public class Stack : AbstractBehavior
             Connect();
             connectedTop = true;
         }
-        else if (canUnstack && (connectedSide || connectedTop))
+        if (canUnstack && (connectedSide || connectedTop))
         {
+            //Debug.Log("Disconnect");
             Disconnect();
-            connectedTop = false;
-            connectedSide = false;
         }
 
 

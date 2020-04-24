@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038318ce6cd2cce4e8a4e3e70a2e1a8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputButtons: 0600000006000000
+  inputButtons: 0600000007000000
   disableScripts: []
   npc: {fileID: 0}
   connectedTop: 0
@@ -418,3 +418,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfbf15562cdc544a8748423e085929a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggered: 0
