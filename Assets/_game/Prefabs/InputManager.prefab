@@ -68,5 +68,15 @@ MonoBehaviour:
     offValue: 0
     button: 3
     condition: 1
+  - axisName: Stack
+    offValue: 0
+    button: 6
+    condition: 0
+  - axisName: Unstack
+    offValue: 0
+    button: 7
+    condition: 0
   inputState: {fileID: 586921297664040050, guid: 556d8a52f310af9438df69c61c04209f,
     type: 3}
+  gameManager: {fileID: 0}
+  player: {fileID: 0}

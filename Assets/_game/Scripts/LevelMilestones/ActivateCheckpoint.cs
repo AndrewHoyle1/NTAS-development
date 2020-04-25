@@ -20,9 +20,10 @@ public class ActivateCheckpoint : MonoBehaviour
 
     protected IEnumerator animationDelayer()  //Makes the player able to pass through certain walls for the duration of the dash
     {
-        print("pre");
+        
         animator.SetInteger("FlagState", 1);
-        yield return new WaitForSeconds(1);
+        print("pre");
+        yield return new WaitForSeconds(5);
         animator.SetInteger("FlagState", 2);
         print("post");
     }

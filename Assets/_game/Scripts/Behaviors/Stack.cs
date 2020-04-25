@@ -24,6 +24,8 @@ public class Stack : AbstractBehavior
         print("unstack");
         gameObject.transform.DetachChildren();
         rigidbody2D.isKinematic = false;
+        connectedSide = false;
+        connectedTop = false;
     }
     // Start is called before the first frame update
     void Start()
