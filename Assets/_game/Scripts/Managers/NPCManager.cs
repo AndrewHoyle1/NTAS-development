@@ -5,12 +5,12 @@ using UnityEngine;
 public class NPCManager : MonoBehaviour
 {
     private Animator animator;
-    private CollisionState collisionState;
+    private Transform parentTransform;
+    private CollisionState parentCollisionState;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
-        collisionState = GetComponent<CollisionState>();
     }
 
     // Start is called before the first frame update
@@ -22,7 +22,15 @@ public class NPCManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //if (parentCollisionState.outOfBounds || parentCollisionState.hitHazard)
+        //{
+        //    //print("ha");
+        //    ChangeAnimationState(1);
+        //}
+        //else
+        //{
+        //    ChangeAnimationState(0);
+        //}
     }
 
     void ChangeAnimationState(int value)
