@@ -402,10 +402,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputButtons: 0600000007000000
-  disableScripts: []
+  disableScripts:
+  - {fileID: -5904611085158551862}
   npc: {fileID: 0}
   connectedTop: 0
   connectedSide: 0
+  rigidbody2D: {fileID: 0}
 --- !u!114 &5929303635716702897
 MonoBehaviour:
   m_ObjectHideFlags: 0

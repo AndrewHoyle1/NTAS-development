@@ -9,14 +9,17 @@ public class Stack : AbstractBehavior
     public bool connectedSide;
     public Rigidbody2D rigidbody2D;
     //public Component initialRb2d;
+    public float stackStart = 1f;
 
     public void Connect()
     {
+        print("Stack");
         npc.transform.SetParent(gameObject.transform);
         //Destroy(npc.GetComponent<Rigidbody2D>());
         rigidbody2D.isKinematic = true;
         //npc.transform.position = new Vector3(1, 0, 0);
 
+        StartCoroutine(ScriptsDelay(stackStart));
     }
 
     public void Disconnect()
@@ -26,6 +29,7 @@ public class Stack : AbstractBehavior
         rigidbody2D.isKinematic = false;
         connectedSide = false;
         connectedTop = false;
+        StartCoroutine(ScriptsDelay(stackStart));
     }
     // Start is called before the first frame update
     void Start()
@@ -42,21 +46,26 @@ public class Stack : AbstractBehavior
         var canUnstack = inputState.GetButtonValue(inputButtons[1]);
 
 
-        if (canStack && collisionState.npcInteractionSide)
+        if (canStack && (connectedSide || connectedTop))
         {
-            Connect();
-            connectedSide = true;
-        }
-        else if (canStack && collisionState.npcInteractionTop)
-        {
-            Connect();
-            connectedTop = true;
-        }
-        if (canUnstack && (connectedSide || connectedTop))
-        {
-            //Debug.Log("Disconnect");
+            //print("Disconnect");
             Disconnect();
         }
+        else
+        {
+            if (canStack && collisionState.npcInteractionSide)
+            {
+                Connect();
+                connectedSide = true;
+            }
+            else if (canStack && collisionState.npcInteractionTop)
+            {
+                Connect();
+                connectedTop = true;
+            }
+        }
+        
+        
 
 
     }

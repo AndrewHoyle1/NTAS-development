@@ -200,11 +200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
         type: 3}
-      propertyPath: inputs.Array.data[6].button
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2861842159186383655, guid: 707009a27f116aa4d96af7b738a455f0,
-        type: 3}
       propertyPath: inputs.Array.data[6].condition
       value: 0
       objectReference: {fileID: 0}
@@ -353,12 +348,12 @@ PrefabInstance:
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 43.45
+      value: -6.44
       objectReference: {fileID: 0}
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.57
+      value: -7.15
       objectReference: {fileID: 0}
     - target: {fileID: 8095205668392018532, guid: 9a970e70fcfc9054a90aa9d45ee3b848,
         type: 3}
