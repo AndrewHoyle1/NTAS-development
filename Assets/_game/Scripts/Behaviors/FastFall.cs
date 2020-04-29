@@ -35,8 +35,11 @@ public class FastFall : AbstractBehavior
     protected void OnFastFall()
     {
         var vel = body2d.velocity;
-        body2d.velocity = new Vector2(vel.x, vel.y * fastFallMultiplier);        
-        StartCoroutine(passAllower());
+        body2d.velocity = new Vector2(vel.x, vel.y * fastFallMultiplier);
+        if (collisionState.stacked)
+        {
+            StartCoroutine(passAllower());
+        }
     }
 
     protected IEnumerator passAllower()  //Makes the player able to pass through certain walls for the duration of the dash

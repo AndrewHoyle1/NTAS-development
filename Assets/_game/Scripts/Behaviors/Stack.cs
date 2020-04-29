@@ -17,6 +17,7 @@ public class Stack : AbstractBehavior
         npc.transform.SetParent(gameObject.transform);
         Destroy(rigidbody2D);
         Debug.Log("Connected");
+        collisionState.stacked = true;
         //rigidbody2D.isKinematic = true;
         //npc.transform.position = new Vector3(1, 0, 0);
 
@@ -35,6 +36,7 @@ public class Stack : AbstractBehavior
         rigidbody2D.gravityScale = 8.0f;
         connectedSide = false;
         connectedTop = false;
+        collisionState.stacked = false;
         Debug.Log("Disconnected");
         StartCoroutine(ScriptsDelay(stackStart));
     }

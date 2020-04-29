@@ -25,6 +25,7 @@ public class CollisionState : MonoBehaviour
     public bool npcInteractionSide;
     public bool checkpointHit;
     public bool portalHit;
+    public bool stacked;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -39,6 +40,7 @@ public class CollisionState : MonoBehaviour
     {
         inputState = GetComponent<InputState>();
         stack = GetComponent<Stack>();
+        stacked = false;
     }
 
     // Update is called once per frame

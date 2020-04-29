@@ -228,6 +228,7 @@ MonoBehaviour:
   npcInteractionSide: 0
   checkpointHit: 0
   portalHit: 0
+  stacked: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
@@ -254,6 +255,8 @@ MonoBehaviour:
   jumpSpeed: 30
   jumpDelay: 0.2
   jumpCount: 2
+  jumpParticles: {fileID: 8352830611408491353, guid: 0d0d1b4fc859f924d823047583b6c39d,
+    type: 3}
 --- !u!114 &586921297664039945
 MonoBehaviour:
   m_ObjectHideFlags: 0

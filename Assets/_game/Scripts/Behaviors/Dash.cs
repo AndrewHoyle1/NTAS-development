@@ -26,14 +26,20 @@ public class Dash : AbstractBehavior
         var holdTime = inputState.GetButtonHoldTime(inputButtons[0]);
         if (canDash && holdTime < .1f)
         {
-            OnDash();
+            if (collisionState.stacked)
+            {
+                OnStackDash();
+            }
+            else
+            {
+                OnDash();
+            }            
         }       
     }
 
     protected virtual void OnDash()
     {
         lastDashTime = Time.time;
-        Transform clone = Instantiate(dashParticles, transform.position, Quaternion.identity);
         if (inputState.direction == Directions.Right)
         {
             body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);            
@@ -41,10 +47,28 @@ public class Dash : AbstractBehavior
         else 
         {
             body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
+        }
+        StartCoroutine(ScriptsDelay(dashDuration));
+    }
+
+    protected virtual void OnStackDash()
+    {
+        lastDashTime = Time.time;
+        clone = Instantiate(dashParticles, transform.position, Quaternion.identity);
+        if (inputState.direction == Directions.Right)
+        {
+            body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
+        }
+        else
+        {
+            body2d.velocity = new Vector2(dashVelX * (float)inputState.direction, dashVelY);
             clone.rotation = Quaternion.AngleAxis(180, Vector3.up);
         }
         StartCoroutine(ScriptsDelay(dashDuration));
-        StartCoroutine(passAllower());
+        if (collisionState.stacked)
+        {
+            StartCoroutine(passAllower());
+        }
         Destroy(clone.gameObject, 0.25f);
     }
 
