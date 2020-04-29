@@ -28,10 +28,15 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         //print(collisionState.standing);
-        if(collisionState.outOfBounds || collisionState.hitHazard)
+        if (collisionState.outOfBounds || collisionState.hitHazard)
         {
             //print("ha");
             ChangeAnimationState(1);
+        }
+        else if (collisionState.portalHit)
+        {
+            print("hi");
+            ChangeAnimationState(3);
         }
         else
         {

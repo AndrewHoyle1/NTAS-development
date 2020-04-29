@@ -23,7 +23,7 @@ public class ActivateCheckpoint : MonoBehaviour
         
         animator.SetInteger("FlagState", 1);
         print("pre");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         animator.SetInteger("FlagState", 2);
         print("post");
     }

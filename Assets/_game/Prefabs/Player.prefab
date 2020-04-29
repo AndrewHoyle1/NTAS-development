@@ -213,6 +213,9 @@ MonoBehaviour:
   checkpointLayer:
     serializedVersion: 2
     m_Bits: 8192
+  portalLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   standing: 0
   onWall: 0
   outOfBounds: 0
@@ -224,6 +227,7 @@ MonoBehaviour:
   npcInteractionTop: 0
   npcInteractionSide: 0
   checkpointHit: 0
+  portalHit: 0
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
@@ -408,6 +412,7 @@ MonoBehaviour:
   connectedTop: 0
   connectedSide: 0
   rigidbody2D: {fileID: 0}
+  stackStart: 1
 --- !u!114 &5929303635716702897
 MonoBehaviour:
   m_ObjectHideFlags: 0

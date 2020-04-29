@@ -12,6 +12,7 @@ public class CollisionState : MonoBehaviour
     public LayerMask breakableLayer;
     public LayerMask npcLayer;
     public LayerMask checkpointLayer;
+    public LayerMask portalLayer;
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
@@ -23,6 +24,7 @@ public class CollisionState : MonoBehaviour
     public bool npcInteractionTop;
     public bool npcInteractionSide;
     public bool checkpointHit;
+    public bool portalHit;
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
@@ -62,6 +64,8 @@ public class CollisionState : MonoBehaviour
             hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             
