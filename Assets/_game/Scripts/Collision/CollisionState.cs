@@ -96,6 +96,8 @@ public class CollisionState : MonoBehaviour
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
+
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             pos.x += transform.position.x;
             pos.y += transform.position.y;
@@ -116,6 +118,8 @@ public class CollisionState : MonoBehaviour
             hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             pos.x += transform.position.x;
