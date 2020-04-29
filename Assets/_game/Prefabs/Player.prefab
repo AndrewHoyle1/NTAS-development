@@ -270,8 +270,9 @@ MonoBehaviour:
   disableScripts:
   - {fileID: 586921297664039948}
   - {fileID: 586921297664040052}
+  - {fileID: 586921297664039945}
   jumpVelocity: {x: 20, y: 20}
-  resetDelay: 0.3
+  resetDelay: 0.1
 --- !u!114 &586921297664039944
 MonoBehaviour:
   m_ObjectHideFlags: 0

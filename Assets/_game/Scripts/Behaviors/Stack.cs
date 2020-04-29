@@ -15,8 +15,9 @@ public class Stack : AbstractBehavior
     {
         print("Stack");
         npc.transform.SetParent(gameObject.transform);
-        //Destroy(npc.GetComponent<Rigidbody2D>());
-        rigidbody2D.isKinematic = true;
+        Destroy(rigidbody2D);
+        Debug.Log("Connected");
+        //rigidbody2D.isKinematic = true;
         //npc.transform.position = new Vector3(1, 0, 0);
 
         StartCoroutine(ScriptsDelay(stackStart));
@@ -26,9 +27,15 @@ public class Stack : AbstractBehavior
     {
         print("unstack");
         gameObject.transform.DetachChildren();
-        rigidbody2D.isKinematic = false;
+        //rigidbody2D.isKinematic = false;
+        npc.AddComponent<Rigidbody2D>();
+        rigidbody2D = npc.GetComponent<Rigidbody2D>();
+        rigidbody2D.simulated = true;
+        rigidbody2D.useAutoMass = true;
+        rigidbody2D.gravityScale = 8.0f;
         connectedSide = false;
         connectedTop = false;
+        Debug.Log("Disconnected");
         StartCoroutine(ScriptsDelay(stackStart));
     }
     // Start is called before the first frame update
