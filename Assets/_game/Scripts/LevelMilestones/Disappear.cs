@@ -8,6 +8,7 @@ public class Disappear : MonoBehaviour
     public TilemapRenderer tilemapRenderer;
     public TilemapCollider2D tilemapCollider;
     public bool present; //Tells if the plat is present.
+    public bool startPresent;
 
     public float presentTime; //How long the plat is active
     public float goneTime; //How long it's gone
@@ -16,7 +17,7 @@ public class Disappear : MonoBehaviour
     void Start()
     {
         currentWaitTime = presentTime;
-        present = true;
+        present = startPresent;
     }
     
     // Update is called once per frame
