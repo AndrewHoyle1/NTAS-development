@@ -227,6 +227,7 @@ MonoBehaviour:
   bottomPosition: {x: 0, y: -0.3}
   leftPosition: {x: -0.3, y: 0}
   rightPosition: {x: 0.3, y: 0}
+  topPosition: {x: 0, y: 0.3}
   collisionRadius: 0.4
   colliderDelay: 0.5
   debugCollisionColor: {r: 1, g: 0, b: 0, a: 1}
