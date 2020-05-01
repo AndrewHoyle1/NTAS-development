@@ -76,7 +76,7 @@ public class FullGameManager : MonoBehaviour
     void RespawnPlayer()
     {
         collisionState = player.GetComponent<CollisionState>();
-        if (collisionState.outOfBounds || collisionState.hitHazard)
+        if (collisionState.outOfBounds || collisionState.hitHazardBottom || collisionState.hitHazardSide)
         {
             StartCoroutine(Delay(0.5f));
             animator = player.GetComponent<Animator>();

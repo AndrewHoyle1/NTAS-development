@@ -33,7 +33,7 @@ public class Walk : AbstractBehavior
                 running = true;
             }
 
-            if(collisionState.hitHazard)
+            if(collisionState.hitHazardBottom)
             {
                 tmpSpeed = 0.0f;
 

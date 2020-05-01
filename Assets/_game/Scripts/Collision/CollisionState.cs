@@ -16,7 +16,9 @@ public class CollisionState : MonoBehaviour
     public bool standing;
     public bool onWall;
     public bool outOfBounds;
-    public bool hitHazard;
+    public bool hitHazardBottom;
+    public bool hitHazardSide;
+    public bool hitHazardTop;
     public bool canPassThroughVert;
     public bool canPassThroughHorz;
     public bool canVertBoost;
@@ -29,6 +31,7 @@ public class CollisionState : MonoBehaviour
     public Vector2 bottomPosition = Vector2.zero;
     public Vector2 leftPosition = Vector2.zero;
     public Vector2 rightPosition = Vector2.zero;
+    public Vector2 topPosition = Vector2.zero;
     public float collisionRadius = 0.5f;
     public float colliderDelay = 0.5f;
     public Color debugCollisionColor = Color.red;
@@ -63,7 +66,7 @@ public class CollisionState : MonoBehaviour
 
             outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
 
-            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+            hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
@@ -84,6 +87,8 @@ public class CollisionState : MonoBehaviour
             onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
 
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
         else if (stack.connectedTop)
         {
@@ -94,7 +99,7 @@ public class CollisionState : MonoBehaviour
 
             outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
 
-            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+            hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
@@ -107,6 +112,8 @@ public class CollisionState : MonoBehaviour
             onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
 
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
         else
         {
@@ -117,7 +124,7 @@ public class CollisionState : MonoBehaviour
 
             outOfBounds = (Physics2D.OverlapCircle(pos, collisionRadius, boundaryLayer) && !standing);
 
-            hitHazard = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+            hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
@@ -130,6 +137,8 @@ public class CollisionState : MonoBehaviour
             onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
 
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
        
     }
@@ -138,11 +147,12 @@ public class CollisionState : MonoBehaviour
     {
         Gizmos.color = debugCollisionColor;
 
-        var positions = new Vector2[] { rightPosition, bottomPosition, leftPosition };
+        var positions = new Vector2[] { rightPosition, bottomPosition, leftPosition, topPosition };
 
         foreach (var position in positions) {
 
             var pos = position;
+
             pos.x += transform.position.x;
             pos.y += transform.position.y;
 
