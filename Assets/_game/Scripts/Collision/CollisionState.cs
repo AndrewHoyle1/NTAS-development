@@ -23,7 +23,7 @@ public class CollisionState : MonoBehaviour
     public bool canPassThroughHorz;
     public bool canVertBoost;
     public bool canHorzBoost;
-    public bool npcInteractionBottom;
+    public bool npcInteractionTop;
     public bool npcInteractionSide;
     public bool checkpointHit;
     public bool portalHit;
@@ -68,7 +68,9 @@ public class CollisionState : MonoBehaviour
 
             hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
-            npcInteractionBottom = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             
@@ -87,13 +89,6 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-
-            pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
-
-            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
         }
         else if (stack.connectedTop)
         {
@@ -106,7 +101,9 @@ public class CollisionState : MonoBehaviour
 
             hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
-            npcInteractionBottom = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             pos.x += transform.position.x;
@@ -117,13 +114,6 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-
-            pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
-
-            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
         }
         else
         {
@@ -136,7 +126,9 @@ public class CollisionState : MonoBehaviour
 
             hitHazardBottom = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
-            npcInteractionBottom = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+            npcInteractionTop = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
+
+            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             pos.x += transform.position.x;
@@ -147,13 +139,6 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-
-            pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
-
-            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
-            portalHit = (Physics2D.OverlapCircle(pos, collisionRadius, portalLayer));
         }
        
     }
