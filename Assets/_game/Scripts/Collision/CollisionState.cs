@@ -89,6 +89,12 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+            pos = topPosition;
+            pos.x = transform.position.x;
+            pos.y = transform.position.y;
+
+            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
         else if (stack.connectedTop)
         {
@@ -114,6 +120,12 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+            pos = topPosition;
+            pos.x = transform.position.x;
+            pos.y = transform.position.y;
+
+            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
         else
         {
@@ -139,6 +151,12 @@ public class CollisionState : MonoBehaviour
             npcInteractionSide = (Physics2D.OverlapCircle(pos, collisionRadius, npcLayer));
 
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
+
+            pos = topPosition;
+            pos.x = transform.position.x;
+            pos.y = transform.position.y;
+
+            hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
        
     }
