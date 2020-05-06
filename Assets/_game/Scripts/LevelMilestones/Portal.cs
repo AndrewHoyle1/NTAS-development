@@ -12,7 +12,7 @@ public class Portal : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             print("Scene Transition");
-            SceneManager.LoadScene("Start Menu");
+            SceneManager.LoadScene("startMenu");
         }
     }
 }
