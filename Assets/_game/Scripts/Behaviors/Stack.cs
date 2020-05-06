@@ -47,6 +47,7 @@ public class Stack : AbstractBehavior
         }
         else if (canStack && collisionState.npcInteractionTop) 
         {
+<<<<<<< Updated upstream
             Connect();
             connectedTop = true;
         }
@@ -54,6 +55,18 @@ public class Stack : AbstractBehavior
         {
             //Debug.Log("Disconnect");
             Disconnect();
+=======
+            if (canStack && collisionState.npcInteractionSide)
+            {
+                Connect();
+                connectedSide = true;
+            }
+            else if (canStack && collisionState.npcInteractionBottom)
+            {
+                Connect();
+                connectedTop = true;
+            }
+>>>>>>> Stashed changes
         }
 
 
