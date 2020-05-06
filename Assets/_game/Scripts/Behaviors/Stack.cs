@@ -57,25 +57,29 @@ public class Stack : AbstractBehavior
 
         if (canStack && (connectedSide || connectedTop))
         {
-            //print("Disconnect");
             Disconnect();
         }
         else
         {
-            if (canStack && collisionState.npcInteractionSide)
-            {
+            Disconnect();
+        }
+
+        if (canStack && collisionState.npcInteractionSide)
+        {
                 Connect();
                 connectedSide = true;
-            }
-            else if (canStack && collisionState.npcInteractionTop)
-            {
+        }
+
+        else if (canStack && collisionState.npcInteractionBottom)
+        {
                 Connect();
                 connectedTop = true;
-            }
         }
-        
-        
-
 
     }
+        
+        
+
+
+   
 }
