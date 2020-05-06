@@ -11091,7 +11091,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 4cefd52abe8a45e4ba403fe498f5910f, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -11528,7 +11528,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 4cefd52abe8a45e4ba403fe498f5910f, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -12302,21 +12302,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc67c29f024aa74db352dfefcc3fd10, type: 3}
---- !u!1 &7346705733945773034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7346705733675853360, guid: 4fc67c29f024aa74db352dfefcc3fd10,
-    type: 3}
-  m_PrefabInstance: {fileID: 7346705733945773033}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7346705733945773035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7346705733945773034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e94dbfc9aaa1a4aaaea96d3f771829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
