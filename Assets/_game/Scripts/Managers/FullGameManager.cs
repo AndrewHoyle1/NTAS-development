@@ -9,8 +9,9 @@ public class FullGameManager : MonoBehaviour
     public SpawnPoint npcSpawnPoint;
     public GameObject player;
     public GameObject npc;
-    public GameObject checkpoint;
+    public Vector3 checkpoint;
     public Animator animator;
+    public CheckpointScript checkpointScript;
 
     public static FullGameManager sharedInstance = null;
     public CameraManager cameraManager;
@@ -63,9 +64,9 @@ public class FullGameManager : MonoBehaviour
         //Debug.Log("Ended Delay at " + Time.time);
 
         
-        if (player.GetComponent<Checkpoint>().triggered == true)
+        if (checkpointScript.triggered1 || checkpointScript.triggered2)
         {
-            player.GetComponent<Transform>().position = checkpoint.transform.position;
+            player.GetComponent<Transform>().position = checkpoint;
         }
 
         else
@@ -76,7 +77,7 @@ public class FullGameManager : MonoBehaviour
     void RespawnPlayer()
     {
         collisionState = player.GetComponent<CollisionState>();
-        if (collisionState.outOfBounds || collisionState.hitHazardBottom || collisionState.hitHazardSide)
+        if (collisionState.outOfBounds || collisionState.hitHazardBottom || collisionState.hitHazardSide || collisionState.hitHazardTop)
         {
             StartCoroutine(Delay(0.5f));
             animator = player.GetComponent<Animator>();
@@ -90,13 +91,14 @@ public class FullGameManager : MonoBehaviour
     {
         // call in Start() to guarantee the GameObject is on scene
         cameraManager.virtualCamera.Follow = player.transform;
-        checkpoint = GameObject.FindGameObjectWithTag("Checkpoint");
+        checkpointScript = player.GetComponent<CheckpointScript>();
+        
     }
 
     private void Update()
     {
         RespawnPlayer();
-
+        checkpoint = checkpointScript.mostRecentSpawnPoint;
     }
 
 }

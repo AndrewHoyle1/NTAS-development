@@ -219,7 +219,9 @@ MonoBehaviour:
   standing: 0
   onWall: 0
   outOfBounds: 0
-  hitHazard: 0
+  hitHazardBottom: 0
+  hitHazardSide: 0
+  hitHazardTop: 0
   canPassThroughVert: 0
   canPassThroughHorz: 0
   canVertBoost: 0
@@ -431,3 +433,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggered: 0
+  gm: {fileID: -677057183361740655, guid: 1c8f21d69e2a91544a2abfc9c43a0ccf, type: 3}
+  mostRecentSpawnPoint: {x: 0, y: 0, z: 0}

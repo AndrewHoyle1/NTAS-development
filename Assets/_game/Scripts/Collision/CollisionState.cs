@@ -59,7 +59,7 @@ public class CollisionState : MonoBehaviour
 
         if (stack.connectedSide)
         {
-            pos.x += transform.position.x;
+            pos.x += transform.position.x - 0.5f;
             pos.y += transform.position.y;
 
             standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer);
@@ -91,8 +91,8 @@ public class CollisionState : MonoBehaviour
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
+            pos.x += transform.position.x - 0.5f;
+            pos.y += transform.position.y;
 
             hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
@@ -113,7 +113,7 @@ public class CollisionState : MonoBehaviour
 
             pos = inputState.direction == Directions.Right ? rightPosition : leftPosition;
             pos.x += transform.position.x;
-            pos.y += transform.position.y;
+            pos.y += transform.position.y - 0.5f;
 
             onWall = ((Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer) || Physics2D.OverlapCircle(pos, collisionRadius, breakableLayer)) && !standing);
 
@@ -122,8 +122,8 @@ public class CollisionState : MonoBehaviour
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
 
             hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
@@ -153,8 +153,8 @@ public class CollisionState : MonoBehaviour
             hitHazardSide = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
 
             pos = topPosition;
-            pos.x = transform.position.x;
-            pos.y = transform.position.y;
+            pos.x += transform.position.x;
+            pos.y += transform.position.y;
 
             hitHazardTop = (Physics2D.OverlapCircle(pos, collisionRadius, hazardsLayer));
         }
