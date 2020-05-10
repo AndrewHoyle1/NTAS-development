@@ -10100,7 +10100,7 @@ PrefabInstance:
     - target: {fileID: 3577434722195793147, guid: 9fa2ebff8961e5a43b8e9a1dc1767282,
         type: 3}
       propertyPath: m_Name
-      value: Checkpoint
+      value: Checkpoint1
       objectReference: {fileID: 0}
     - target: {fileID: 3577434722195793147, guid: 9fa2ebff8961e5a43b8e9a1dc1767282,
         type: 3}

@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6426738631860413267}
   - component: {fileID: 4403478088035835595}
   - component: {fileID: 6204243369474772114}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Kiran
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
