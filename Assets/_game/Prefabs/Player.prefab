@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cfbf15562cdc544a8748423e085929a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggered: 0
-  gm: {fileID: -677057183361740655, guid: 1c8f21d69e2a91544a2abfc9c43a0ccf, type: 3}
+  triggered1: 0
+  triggered2: 0
+  spawnPoint: {fileID: 0}
   mostRecentSpawnPoint: {x: 0, y: 0, z: 0}
